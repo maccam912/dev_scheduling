@@ -86,10 +86,21 @@ async def register_vacation(request: HTMXRequest) -> None:
     save_schedule_to_file(sched)
     return HTMXTemplate(template_name="submitted.html")
 
+@post(path="/desire")
+async def register_desire(request: HTMXRequest) -> None:
+    values = await request.form()
+    first_date_str = values["week"].split()[0]
+    first_date: date = date.fromisoformat(first_date_str)
+    week = Week(first_day=first_date)
+    sched = get_schedule_from_file()
+    sched.add_developer_preference(values["dev"], week, 2)
+    save_schedule_to_file(sched)
+    return HTMXTemplate(template_name="submitted.html")
+
 
 
 app = Litestar(
-    route_handlers=[get_table, get_home, solve, register_vacation],
+    route_handlers=[get_table, get_home, solve, register_vacation, register_desire],
     debug=True,
     request_class=HTMXRequest,
     template_config=TemplateConfig(

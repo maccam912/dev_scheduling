@@ -35,6 +35,29 @@
       <button type="submit" class="bg-blue-500 text-white p-2 rounded">Submit</button>
     </form>
   </div>
+  <!-- Prefer this week -->
+    <div class="mt-8">
+    <h2 class="text-2xl mb-4">Register Desire</h2>
+    <form action="/desire" method="POST" hx-post="/desire" hx-trigger="submit">
+      <div class="mb-4">
+        <label for="dev" class="block text-sm font-medium text-gray-600">Developer</label>
+        <select id="dev" name="dev" class="mt-1 p-2 w-full border rounded-md">
+          {% for dev in devs %}
+            <option value="{{ dev }}">{{ dev }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="mb-4">
+        <label for="week" class="block text-sm font-medium text-gray-600">Week</label>
+        <select id="week" name="week" class="mt-1 p-2 w-full border rounded-md">
+          {% for week in schedule %}
+            <option value="{{ week.date_range }}">{{ week.date_range }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <button type="submit" class="bg-blue-500 text-white p-2 rounded">Submit</button>
+    </form>
+  </div>
 
 </body>
 </html>
