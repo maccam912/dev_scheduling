@@ -68,7 +68,7 @@ class Schedule(BaseModel):
     def add_seed_data(self) -> None:
         """Add base data to the schedule"""
         # Add developers
-        for name in ["Matt Davis", "Matt Koski", "Eric",  "Nick",  "Himani", "Abhi"]:
+        for name in ["Matt Davis", "Matt Koski", "Eric",  "Nick",  "Himani", "Abhi", "Andrew"]:
             self.developers.add(Developer(name=name, preferences=set()))
         first_day = date.today() - timedelta(days=7*12)
         # Add weeks
