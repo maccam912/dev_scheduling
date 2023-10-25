@@ -1,3 +1,4 @@
+from math import ceil
 import sched
 from ortools.sat.python import cp_model
 from models import Assignment, Developer, Schedule, Week
@@ -36,7 +37,7 @@ def solve_schedule(schedule: Schedule) -> Schedule | None:
     for w in schedule.weeks:
         model.Add(sum([vars[assignment] for assignment in schedule.get_assignments_for_week(w)]) == 2)
     
-    max_shifts_per_dev = 8
+    max_shifts_per_dev = ceil((2.0/7)*len(schedule.weeks))
     for d in schedule.developers:
         dev_assignments = []
         for assignment in schedule.assignments:
