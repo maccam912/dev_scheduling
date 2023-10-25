@@ -1,4 +1,4 @@
-FROM python:3.12
+FROM python:3.11
 
 RUN curl -sSL https://pdm.fming.dev/install-pdm.py | python3 -
 ADD . .

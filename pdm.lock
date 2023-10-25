@@ -6,7 +6,7 @@ groups = ["default"]
 cross_platform = true
 static_urls = false
 lock_version = "4.3"
-content_hash = "sha256:b47d341acf8d8c61d40b3c049a118eacfc0e523782215991fedf279898ce5984"
+content_hash = "sha256:92bc6f5bfce9e29753c883b00bf64582b59d6b425ee907d5c21d5d1cf90424bc"
 
 [[package]]
 name = "absl-py"
@@ -625,6 +625,16 @@ dependencies = [
 files = [
     {file = "rich-click-1.7.0.tar.gz", hash = "sha256:ab34e5d9f7733c4e6072f4de79eb3b35ac9ae78e692ea8a543f3b2828b30fee4"},
     {file = "rich_click-1.7.0-py3-none-any.whl", hash = "sha256:093f50400135bad749a00c4cc0cfa4591b3c58a9438685abfa7314ee7b63d3bc"},
+]
+
+[[package]]
+name = "setuptools"
+version = "68.2.2"
+requires_python = ">=3.8"
+summary = "Easily download, build, install, upgrade, and uninstall Python packages"
+files = [
+    {file = "setuptools-68.2.2-py3-none-any.whl", hash = "sha256:b454a35605876da60632df1a60f736524eb73cc47bbc9f3f1ef1b644de74fd2a"},
+    {file = "setuptools-68.2.2.tar.gz", hash = "sha256:4ac1475276d2f1c48684874089fefcd83bd7162ddaafb81fac866ba0db282a87"},
 ]
 
 [[package]]
