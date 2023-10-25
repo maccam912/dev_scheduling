@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Developer Support Schedule</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+</head>
+<body class="p-10">
+  <h1 class="text-3xl mb-4">Developer Support Schedule</h1>
+
+  <div hx-get="/table" hx-trigger="load">
+  </div>
+
+  <!-- Vacation Form -->
+    <div class="mt-8">
+    <h2 class="text-2xl mb-4">Register Vacation</h2>
+    <form action="/vacation" method="POST" hx-post="/vacation" hx-trigger="submit">
+      <div class="mb-4">
+        <label for="dev" class="block text-sm font-medium text-gray-600">Developer</label>
+        <select id="dev" name="dev" class="mt-1 p-2 w-full border rounded-md">
+          {% for dev in devs %}
+            <option value="{{ dev }}">{{ dev }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="mb-4">
+        <label for="week" class="block text-sm font-medium text-gray-600">Week</label>
+        <select id="week" name="week" class="mt-1 p-2 w-full border rounded-md">
+          {% for week in schedule %}
+            <option value="{{ week.date_range }}">{{ week.date_range }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <button type="submit" class="bg-blue-500 text-white p-2 rounded">Submit</button>
+    </form>
+  </div>
+
+</body>
+</html>
